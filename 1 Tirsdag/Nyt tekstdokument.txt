@@ -1,0 +1,88 @@
+Fundamental Network Topics
+
+You can do most of the exercises in this document by yourself, but they are meant as exercises with a supplementary discussion in the class, so you will gain a lot more from participating in the class.
+Understanding Basic Network Terms like IP, TCP/IP, DNS, DHCP and more.
+Most of these exercises are meant to be answered with text, so write down your reply so you will remember.
+
+•	What is your public IP address right now, and how did you find it?
+5.179.80.204 from : https://www.whatismyip.com/
+Router Private IP: 10.50.137.1 http://whatsmyrouterip.com/
+
+•	What is your private IP address right now (do this both at home and in school), and who/what gave you that address?
+Home: 192.168.51.1 kommandoprompt / ipconfig / under wireless IPv4 adress 
+School: 10.50.138.50 , kommandoprompt / ipconfig / under wireless IPv4 adress
+
+•	What’s special about these address ranges?
+10.0.0.0 – 10.255.255.255 = Single Class A. 24 bit
+172.16.0.0 – 172.31.255.255 = Contiguous range of 16 Class B blocks.
+192.168.0.0 – 192.168.255.255 = Contiguous range of 256 Class C blocks.
+
+•	What’s special about this ip-address: 127.0.0.1? 
+ egen computer/ local host (loopback) 
+(bruges som en test, da den returneres af router, derved simuleres et signal udefra).  
+
+•	What kind of service would you expect to find on a server using these ports: 
+22, = Secure Shell uses port 22. SSH servers listen on this port for incoming login requests from remote clients.
+
+23: governs telnet, a text-based system for logging into remote systems. Although modern remote-access approaches rely on Secure Shell on port 22, port
+
+25: governs the Simple Mail Transfer Protocol — the tool by which an email on your computer makes its way to a mail server, and then from that server to the larger internet for routing and delivery.
+
+53: Domain Name System (DNS)
+80: HTTP
+443: HTTPS
+
+•	What is the IP address of studypoints.dk and how did you find it?
+KommandoPrompt / tracert studypoints.dk => 165.227.137.75
+
+
+•	If you write https://studypoints.dk in your browser, how did “it” figure out that it should go to the IP address you discovered above?
+The TRACERT diagnostic utility determines the route to a destination by sending Internet Control Message Protocol (ICMP) echo packets to the destination. In these packets, TRACERT uses varying IP Time-To-Live (TTL) values. Because each router along the path is required to decrement the packet's TTL by at least 1 before forwarding the packet, the TTL is effectively a hop counter. When the TTL on a packet reaches zero (0), the router sends an ICMP "Time Exceeded" message back to the source computer.
+
+TRACERT sends the first echo packet with a TTL of 1 and increments the TTL by 1 on each subsequent transmission, until the destination responds or until the maximum TTL is reached. The ICMP "Time Exceeded" messages that intermediate routers send back show the route. Note however that some routers silently drop packets that have expired TTLs, and these packets are invisible to TRACERT.
+
+TRACERT prints out an ordered list of the intermediate routers that return ICMP "Time Exceeded" messages. Using the -d option with the tracert command instructs TRACERT not to perform a DNS lookup on each IP address, so that TRACERT reports the IP address of the near-side interface of the routers. 
+
+•	Explain short the purpose of an ip-address and a port-number and why we need both
+Ip- address = hvor forespørgelse/efterspørgelse adresseres 
+Port = hvad skal man gøre brug af ved ankomst til adressen (hvilken applikation)
+
+Se ip-adressen som en husstand med en adresse, som posten skal bringe en pakke ud til, hvor port er den personen som skal have/behandle pakken når pakken kommer frem. 
+
+Pakken kan afvises hvis personen ikke findes, ikke kan ønsker at modtage den, eller hvis posten stoppes af hunden (firewall)  
+
+•	What is your (nearest) DNS server,?
+KommandoPromt / Ipconfig /all giver 4 dns server at vælge i mellem derefter kan man køre tracert og se hvilken som giver flest hops. 
+10.3.1.1 
+ 
+
+•	What is (conceptually) the DNS system and the purpose with a DNS Server?
+DNS-server eller navneserver er en server placeret på et IP-baseret datanet
+ formålet er at tager sig af oversættelsen af de navne man normalt arbejder med på Internettet.
+f.eks. studypoints.dk henviser til en ip-adresse mm. Dette sker så protokollerne kan træde i kraft. 
+DNS:  Server tildeler private ip-adresser og gateway til public net. 
+
+•	What is your current Gateway, and how did you find it?
+KommandoPromt / Ipconfig /all => 10.50.128.1
+
+•	What is the address of your current DHCP-Server, and how did you find it?
+KommandoPromt / Ipconfig /all  => 10.255.1.10
+
+
+•	Explain (conceptually) about the TCP/IP-protocol stack
+TCP 
+Langsom, eftersom den skal sende response for modtagelse, Større header 
+        Løser belastning ved: 
+1. Windows size: ser på hvor meget plads modtageren har og regulere hastigheden. 
+2. Kontrol af netværksstyrke: styres via en timer, hvis ingen bekæftelse er givet antages det at pakken ikke er modtaget, og derved gensendes pakken igen ved timer udløb. (kan ske dublet, tcp protocol styre at pakken derved smides væk)  
+
+Ip upålideligt, gør hvad den kan for at finde vejen til pakken (uden garanti for succes)
+
+•	Explain about the HTTP Protocol (the following exercises will go much deeper into this protocol)
+HTTP er en protocol (ordensregeler) for anskaffelse af resuouser  f.esk. HTML doc, dette sker ofte gennem metoder som get,post, put og delete  via request/response 
+
+•	Explain (conceptually) how HTTP and TCP/IP are connected (what can HTTP do, and where does it fit into TCP/IP)
+HTTP  =  skaber forbindelsen mellem to enheder og at de taler sammen korrekt via metoder som get/post.  
+HTTP/TCP = Sikre at en bruger kan sende/modtage en data pakke, f.eks. e.mail, chat, fildeling.
+Ved anvendelse af TCP stilles der yderligere en garanti for modtagelse og rækkefølgen som denne pakke ankommer i. 
+

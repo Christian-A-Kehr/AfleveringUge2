@@ -6,8 +6,8 @@ How far you got with a solution:
 All done
 
 Where the solution to each exercise can be found in your commit:
-1 Tirsdag => åben doc "Fundamental Network Topics" på github via word 
-             Alternativt åben txt fil i samme mappe
+På github åben 1 Tirsdag og åben doc "Fundamental Network Topics" på github via word 
+             Alternativt åben txt fil i samme mappe og se det på github.
 
 Which of the weekly learnings goals were covered by your solution:
  TCP/IP, IP-addresser herunder private og offentlige IP-addresser,

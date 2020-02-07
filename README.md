@@ -34,7 +34,7 @@ Where the solution to each exercise can be found in your commit:
 For at se om det virker anvend følgende links:
 http://www.cakehr.dk (virker)
 http://www.cakehr.dk;8080 (virker ikke)  
-For at se cakehr.dk får A i sikkerhed gå til: https://www.ssllabs.com/ssltest/
+For at se cakehr.dk får b i sikkerhed gå til: https://www.ssllabs.com/ssltest/
 og intast cakehr.dk
 
 Which of the weekly learnings goals were covered by your solution
@@ -44,8 +44,7 @@ Fredag:
 How far you got with a solution: 
 ingen fredags opgave uploaded... 
 
-Where the solution to each exercise can be found in your commit
-I underviserens hoved: 
+Where the solution to each exercise can be found in your commit 
 
 Which of the weekly learnings goals were covered by your solution
 https://www.youtube.com/watch?v=gkTb9GP9lVI
